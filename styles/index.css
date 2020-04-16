@@ -1,0 +1,6 @@
+/* --primary: blue; */
+@import url("./normalize.css");
+@import url("./theme.css");
+body {
+  background-color: var(--color-blue);
+}
