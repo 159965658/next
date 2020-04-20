@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 // import Layout from "../components/Layout"
 import { NextPage } from "next"
+// import { Button } from "antd"
 // const backgroundColor = "red"
 // import styleCss from "./index.css"
 const IndexPage: NextPage = () => {
@@ -13,6 +14,7 @@ const IndexPage: NextPage = () => {
         <Link href="/about">
           <a className="a">About</a>
         </Link>
+        {/* <Button>antd 按钮</Button> */}
       </p>
       <style jsx global>
         {`

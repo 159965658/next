@@ -1,6 +1,7 @@
-import * as React from 'react'
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import * as React from "react"
+import Link from "next/link"
+import Layout from "../components/Layout"
+import { Button } from "antd"
 
 const AboutPage: React.FunctionComponent = () => (
   <Layout title="About | Next.js + TypeScript Example">
@@ -8,7 +9,9 @@ const AboutPage: React.FunctionComponent = () => (
     <p>This is the about page</p>
     <p>
       <Link href="/">
-        <a>Go home</a>
+        <a>
+          <Button>Go home</Button>
+        </a>
       </Link>
     </p>
   </Layout>

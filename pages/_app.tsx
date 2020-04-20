@@ -1,8 +1,20 @@
-import App from "next/app"
+import App, { AppContext } from "next/app"
 import { Router } from "next/dist/client/router"
-
+import "antd/lib/style/index.less"
 import "@/styles/index.css"
+import { ConfigProvider } from "antd"
+
+import zhCN from "antd/lib/locale/zh_CN"
 export default class MyApp extends App {
+  static async getInitialProps({ Component, ctx }: AppContext) {
+    let pageProps = {}
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return { pageProps }
+  }
+
   componentDidMount() {
     console.log(process.env.NODE_ENV, process.env.API_ROOT)
     Router.events.on("routeChangeComplete", () => {
@@ -29,6 +41,13 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props
     // console.log(pageProps, title)
 
-    return <Component {...pageProps} />
+    return (
+      /* Here we call NextSeo and pass our default configuration to it  */
+
+      <ConfigProvider {...{ componentSize: "middle", locale: zhCN }}>
+        {/* <Button>登录</Button> */}
+        <Component {...pageProps} />
+      </ConfigProvider>
+    )
   }
 }
