@@ -1,27 +1,27 @@
-import App, { AppContext } from "next/app"
-import { Router } from "next/dist/client/router"
-import "antd/lib/style/index.less"
-import "@/styles/index.css"
-import { ConfigProvider } from "antd"
+import App, { AppContext } from "next/app";
+import { Router } from "next/dist/client/router";
+import "antd/lib/style/index.less";
+import "@/styles/index.css";
+import { ConfigProvider } from "antd";
 
-import zhCN from "antd/lib/locale/zh_CN"
+import zhCN from "antd/lib/locale/zh_CN";
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: AppContext) {
-    let pageProps = {}
+    let pageProps = {};
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   componentDidMount() {
-    console.log(process.env.NODE_ENV, process.env.API_ROOT)
+    console.log(process.env.NODE_ENV, process.env.API_ROOT);
     Router.events.on("routeChangeComplete", () => {
-      console.log("complete")
-    })
+      console.log("complete");
+    });
     Router.events.on("routeChangeStart", () => {
-      console.log("routeChangeStart")
+      console.log("routeChangeStart");
 
       if (process.env.NODE_ENV !== "production") {
         // const els = document.querySelectorAll(
@@ -30,7 +30,7 @@ export default class MyApp extends App {
         // const timestamp = new Date().valueOf()
         // els[0].href = "/_next/static/css/styles.chunk.css?v=" + timestamp
       }
-    })
+    });
     // Router.beforePopState(({ url, as, opts }) => {
     // //   console.log("_app.js beforePopState")
     // //   console.log(url, as, opts)
@@ -38,7 +38,7 @@ export default class MyApp extends App {
     // })
   }
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
     // console.log(pageProps, title)
 
     return (
@@ -48,6 +48,6 @@ export default class MyApp extends App {
         {/* <Button>登录</Button> */}
         <Component {...pageProps} />
       </ConfigProvider>
-    )
+    );
   }
 }
