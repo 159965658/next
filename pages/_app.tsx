@@ -4,7 +4,14 @@ import "antd/lib/style/index.less";
 import "@/styles/index.css";
 import { ConfigProvider } from "antd";
 
+import { composeWithDevTools } from "redux-devtools-extension";
 import zhCN from "antd/lib/locale/zh_CN";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducers from "@/store/reducers";
+
+// 1、创建 store
+const store = createStore(reducers, composeWithDevTools());
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {};
@@ -43,11 +50,12 @@ export default class MyApp extends App {
 
     return (
       /* Here we call NextSeo and pass our default configuration to it  */
-
-      <ConfigProvider {...{ componentSize: "middle", locale: zhCN }}>
-        {/* <Button>登录</Button> */}
-        <Component {...pageProps} />
-      </ConfigProvider>
+      <Provider store={store}>
+        <ConfigProvider {...{ componentSize: "middle", locale: zhCN }}>
+          {/* <Button>登录</Button> */}
+          <Component {...pageProps} />
+        </ConfigProvider>
+      </Provider>
     );
   }
 }

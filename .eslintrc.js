@@ -1,9 +1,6 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-  ],
+  extends: ["plugin:@typescript-eslint/recommended", "prettier"],
   env: {
     es6: true,
     node: true,
@@ -11,8 +8,8 @@ module.exports = {
   rules: {
     "prettier/prettier": ["error"],
     "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/explicit-function-return-type":
-      "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/interface-name-prefix": "I",
   },
   plugins: ["prettier"],
 };

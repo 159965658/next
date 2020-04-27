@@ -1,7 +1,8 @@
-import * as React from "react"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 // import Layout from "../components/Layout"
-import { NextPage } from "next"
+import { NextPage } from "next";
+import CounterCon from "@/container/CounterCon";
 // import { Button } from "antd"
 // const backgroundColor = "red"
 // import styleCss from "./index.css"
@@ -10,6 +11,7 @@ const IndexPage: NextPage = () => {
     <div title="Home | Next.js + TypeScript Example">
       <h1>Hello Next.js 👋</h1>
       <h1>Hello Next.js 👋</h1>
+      <CounterCon />
       <p className="pa">
         <Link href="/about">
           <a className="a">About</a>
@@ -35,7 +37,7 @@ const IndexPage: NextPage = () => {
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

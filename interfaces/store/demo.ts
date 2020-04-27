@@ -4,7 +4,6 @@
  * @time 2018/1/9
  **/
 
-export interface Demo {
-  languageName: string;
-  enthusiasmLevel: number;
+export interface IDemo {
+  value: number;
 }
